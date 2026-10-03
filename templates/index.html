@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ComicCraft - AI Comic Creator</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+<body class="hero">
+
+<main class="container">
+
+<section class="card form-card">
+
+    <div class="brand">
+        COMIC<span>CRAFT</span>
+    </div>
+
+    <h1>
+        Turn your idea into a comic.
+    </h1>
+
+    <p class="muted">
+        Create a five-panel AI comic with
+        story, dialogue, illustrations and
+        PDF export.
+    </p>
+
+
+    {% if error %}
+
+    <div class="alert">
+        {{ error }}
+    </div>
+
+    {% endif %}
+
+
+    <form
+        action="/generate"
+        method="post"
+        id="comicForm"
+    >
+
+        <label>
+
+            Story Prompt
+
+            <textarea
+                name="story_prompt"
+                required
+                placeholder="A brave fox exploring an enchanted forest..."
+            ></textarea>
+
+        </label>
+
+
+        <div class="grid">
+
+            <label>
+
+                Main Character Name
+
+                <input
+                    name="character_name"
+                    required
+                    placeholder="Finn"
+                >
+
+            </label>
+
+
+            <label>
+
+                Setting
+
+                <select name="setting">
+
+                    <option>
+                        Enchanted forest
+                    </option>
+
+                    <option>
+                        School
+                    </option>
+
+                    <option>
+                        Space
+                    </option>
+
+                    <option>
+                        City
+                    </option>
+
+                    <option>
+                        Village
+                    </option>
+
+                </select>
+
+            </label>
+
+        </div>
+
+
+        <div class="grid">
+
+            <label>
+
+                Story Tone
+
+                <select name="tone">
+
+                    <option>
+                        Light-hearted
+                    </option>
+
+                    <option>
+                        Dramatic
+                    </option>
+
+                    <option>
+                        Poetic
+                    </option>
+
+                    <option>
+                        Funny
+                    </option>
+
+                    <option>
+                        Educational
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Art Style
+
+                <select name="art_style">
+
+                    <option>
+                        Anime
+                    </option>
+
+                    <option>
+                        Pixel art
+                    </option>
+
+                    <option>
+                        Comic book
+                    </option>
+
+                    <option>
+                        Realistic
+                    </option>
+
+                    <option>
+                        Cartoon
+                    </option>
+
+                </select>
+
+            </label>
+
+        </div>
+
+
+        <button
+            class="primary"
+            type="submit"
+        >
+            ✨ Generate Comic
+        </button>
+
+    </form>
+
+</section>
+
+</main>
+
+
+<script
+    src="/static/js/app.js"
+></script>
+
+</body>
+
+</html>

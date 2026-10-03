@@ -1,0 +1,163 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        {{ title }} - ComicCraft
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<main class="container wide">
+
+
+<header class="topbar">
+
+    <a href="/">
+        ← Create another
+    </a>
+
+
+    <h1>
+        {{ title }}
+    </h1>
+
+
+    <a
+        class="primary small"
+        href="{{ pdf_url }}"
+    >
+        Download PDF
+    </a>
+
+</header>
+
+
+<section class="comic-grid">
+
+
+{% for panel in layout %}
+
+<article class="panel card">
+
+
+    <div class="panel-number">
+
+        PANEL {{ panel.panel_number }}
+
+    </div>
+
+
+    <h2>
+        {{ panel.title }}
+    </h2>
+
+
+    {% if panel.image_path %}
+
+    <img
+        src="{{ panel.image_path }}"
+        alt="{{ panel.title }}"
+    >
+
+    {% endif %}
+
+
+    <p class="scene">
+
+        <em>
+            {{ panel.scene_description }}
+        </em>
+
+    </p>
+
+
+    <div class="copy">
+
+        <b>
+            Caption
+        </b>
+
+        <p>
+            {{ panel.caption }}
+        </p>
+
+
+        <b>
+            Narration
+        </b>
+
+        <p>
+            {{ panel.narration }}
+        </p>
+
+
+        {% if panel.dialogue %}
+
+        <b>
+            Dialogue
+        </b>
+
+        <p>
+            “{{ panel.dialogue }}”
+        </p>
+
+        {% endif %}
+
+
+        <details>
+
+            <summary>
+                Image prompt
+            </summary>
+
+            <p>
+                {{ panel.image_prompt }}
+            </p>
+
+        </details>
+
+    </div>
+
+</article>
+
+{% endfor %}
+
+
+</section>
+
+
+<div class="center">
+
+    <a
+        class="primary"
+        href="{{ pdf_url }}"
+    >
+        Download Your Comic as PDF
+    </a>
+
+</div>
+
+
+</main>
+
+</body>
+
+</html>
