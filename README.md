@@ -1,1 +1,2 @@
 # ComicCraft.AI
+# comic-craft
